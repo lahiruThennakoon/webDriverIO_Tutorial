@@ -3,6 +3,7 @@ const mainPage = require('../pageobjects/main.page');
 const payeesPage = require('../pageobjects/payees.page');
 const paymentsPage = require('../pageobjects/payments.page');
 
+for (let i=0;i<3;i++){
 describe('verify navigation to payees page using navigation menu', () => {
     it('verify payees page is getting loaded', async () => {
 
@@ -53,6 +54,7 @@ describe('verify sorting payees', () => {
 })
 
 describe('verify payments page', () => {
+    
     it('verify current balance is accurate', async () => {
         await mainPage.open();
         let preEverydayBalance = await mainPage.getPreEverydayBalance();
@@ -61,5 +63,8 @@ describe('verify payments page', () => {
         await expect(paymentsPage.SuccessMessage).toBeDisplayed();
         let PostEverydayBalance = await mainPage.getPostEverydayBalance();
         let finalBalance = preEverydayBalance - PostEverydayBalance;
+       
     })
 })
+
+}
